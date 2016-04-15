@@ -1,0 +1,15 @@
+## 写一个简单的chrome-extension
+----
+
+> 谷歌浏览器上已经有很多很好用很牛逼的插件了。
+> 但是我们知道是怎么实现的吗？ 今天以前是一点也不知道。
+> 那么今天就来学习一下吧！
+
++ 首先来到chrome的开发者社区   [https://developer.chrome.com/](https://developer.chrome.com/)
++ 找到插件区域
+
+主要有几个文件
+mainfest //描述文件 主要记录插件的名字。描述、版本号、icon
+icon.png // 插件图标
+popup.html  // 点击插件图标所加载的页面（其实就是相当于一个新的页面，只不过展现在原有浏览器页面之上）
+popup.js   //主要逻辑
