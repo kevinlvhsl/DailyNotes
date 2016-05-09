@@ -57,3 +57,18 @@ server.listen(3004, function () {
 })
 ```
 + 最后 运行node server.js
+
+#### json-server 也支持自己生成js文件代替json的db
+// index.js
+```
+module.exports = function() {
+  var data = { users: [] }
+  // Create 1000 users
+  for (var i = 0; i < 1000; i++) {
+    data.users.push({ id: i, name: 'user' + i })
+  }
+  return data
+}
+```
+ + 运行命令： ` json-server index.js -p 3004`
+ + 打开浏览器： localhost:3004  或 localhost:3004/users/1（用id来筛选）
