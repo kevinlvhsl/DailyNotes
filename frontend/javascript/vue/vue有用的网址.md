@@ -16,3 +16,12 @@
 
 ### vue-antd
 [http://okoala.github.io/vue-antd/#!/components](http://okoala.github.io/vue-antd/#!/components)
+
+### vue2.0的改变log
+[https://github.com/vuejs/vue/wiki/2.0-features](https://github.com/vuejs/vue/wiki/2.0-features)
+
+### vue一个完整的案例
+[https://github.com/jackhutu/jackblog-vue](https://github.com/jackhutu/jackblog-vue)
+
+
+
