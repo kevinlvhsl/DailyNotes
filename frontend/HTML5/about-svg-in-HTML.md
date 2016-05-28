@@ -32,9 +32,9 @@ setCurrentCoordPercent() {
 ```
 
 最好玩的一点就是可以给svg加一些类似css的动画  SMIL动画 
-参见 svg animation
+参见 [svg animation][http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/]
 还有stroke-dasharray 和stroke-offset 两个属性来让path动起来
-详情参见 张鑫旭的博客
+详情参见 [张鑫旭的博客][http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/]
 
 
 
