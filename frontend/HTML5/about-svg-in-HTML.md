@@ -33,6 +33,15 @@ setCurrentCoordPercent() {
 
 最好玩的一点就是可以给svg加一些类似css的动画  SMIL动画 
 参见 [svg animation][http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/]
+```
+<svg width="320" height="200" xmlns="http://www.w3.org/2000/svg">
+    <text font-family="microsoft yahei" font-size="120" y="150" x="160">
+        马
+        <animate attributeName="x" values="160;40;160" dur="3s" repeatCount="indefinite" />
+    </text>
+</svg>
+```
+
 还有stroke-dasharray 和stroke-offset 两个属性来让path动起来
 详情参见 [张鑫旭的博客][http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/]
 
