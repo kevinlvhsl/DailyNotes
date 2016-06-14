@@ -23,5 +23,10 @@
 ### vue一个完整的案例
 [https://github.com/jackhutu/jackblog-vue](https://github.com/jackhutu/jackblog-vue)
 
+### 一个好用的轮播插件
+[https://github.com/be-fe/iSlider](https://github.com/be-fe/iSlider)
+
+
+
 
 
