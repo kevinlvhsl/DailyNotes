@@ -59,7 +59,7 @@ getImage(e){
 
 微信访问 [http://devstatic.myintv.com.cn/yao/jsws/wmyql/index.dev.html](http://devstatic.myintv.com.cn/yao/jsws/wmyql/index.dev.html)
 
-
+注意图片与 input的上下层叠关系。 缩略图生成以前，是input在上， 生成以后，是图片在上
 
 
 
