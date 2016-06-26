@@ -17,7 +17,8 @@ Record I work at ordinary times of learning notes and good articles online
   - javascript
     - js-basic
     - nodejs
-    - jquery..lib
+    - jquery
     - vue
     - react
+    - three.js
 
