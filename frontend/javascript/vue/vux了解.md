@@ -68,7 +68,41 @@
                 <!-- <calendar :value.sync="cvalue"  start-date="2016-06-04" end-date="2017-06-18" title="Date Picker"></calendar> -->
             </group>
         </div>
-
+    <!-- 滚动列表组件。带下拉刷新。。。 -->
+        <scroller lock-x :scrollbar-y="false" style="height: 200px" use-pulldown >
+            <div class="box1">
+                <group>
+                    <cell title="vue" value="cool">111</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">222</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">333</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">444</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">555</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">666</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">777</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">888</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">999</cell>
+                </group>
+                <group>
+                    <cell title="vue" value="cool">101010</cell>
+                </group>
+            </div>
+        </scroller>
 
 
     </div>
@@ -88,7 +122,7 @@ import Switch from 'vux/dist/components/switch'
 import Selector from 'vux/dist/components/selector'
 import Calendar from 'vux/dist/components/calendar'
 import InlineCalendar from 'vux/dist/components/inline-calendar'
-
+import Scroller from 'vux/dist/components/scroller'
 export default {
     data(){
         return {
@@ -115,7 +149,8 @@ export default {
         Switch,
         Selector,
         InlineCalendar,
-        Calendar
+        Calendar,
+        Scroller
     },
     methods: {
         onChange(){
