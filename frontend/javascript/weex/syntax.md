@@ -98,20 +98,64 @@
   timestamp: time stamp that event triggered
 
 
+### Logic
+> REPEAT
+```
+<template>
+  <container>
+    <container repeat="{{list}}" class="{{gender}}">
+      <image src="{{avatar}}"></image>
+      <text>{{nickname}}</text>
+    </container>
+  </container>
+</template>
+<style>
+  .male {...}
+  .female {...}
+</style>
+<script>
+  module.exports = {
+    data: {
+      list: [
+        {gender: 'male', nickname: 'Li Lei', avatar: '...'},
+        {gender: 'female', nickname: 'Han Meimei', avatar: '...'},
+        ...
+      ]
+    }
+  }
+</script>
+```
++ use default $index for the index of array.
+`<div repeat="{{list}}">
+  <text>No. {{$index + 1}}</text>
+<div>`
++ specify the key and value of array.
+`<div repeat="{{v in list}}">
+  <text>No. {{$index + 1}}, {{v.nickname}}</text>
+</div>`
+`<div repeat="{{(k, v) in list}}">
+  <text>No. {{k + 1}}, {{v.nickname}}</text>
+</div>`
+
++ use track-by to specify unique attribute
+``` <container repeat="{{list}}" track-by="nickname" class="{{gender}}">
+      <image src="{{avatar}}"></image>
+      <text>{{nickname}} - {{group}}</text>
+    </container>
+```
+
+### Render Logic Control 渲染逻辑控制
+<container>
+    <container id="world" append="tree">
+      <text>Hello World!</text>
+    </container>
+    <container id="weex" append="node">
+      <text>Hello Weex!</text>
+    </container>
+  </container>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+tree 树型渲染 和 node 节点渲染
 
 
 
