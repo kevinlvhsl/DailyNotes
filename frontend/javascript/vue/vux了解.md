@@ -196,3 +196,15 @@ radio {
 </style>
 
 ```
+
+```
+popup(:show.sync="popShow" height="150px")
+      .btn-wrap
+        .cancel(@click="popShow = false") 取消
+        .sure(@click="saveClockPeriod") 保存
+      .day-wrap
+        .week(v-for="w in clock.weekTextList",
+          @click="selectWeek($index)",
+          :class="{'selected': weekValueList[$index]}")
+          | {{w}}
+```
