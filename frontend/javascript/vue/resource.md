@@ -77,6 +77,7 @@ Methods
 // in a Vue instance
 `this.$http.get('/someUrl', [options]).then(successCallback, errorCallback);`
 `this.$http.post('/someUrl', [body], [options]).then(successCallback, errorCallback);`
+`this.$http.put('/someUrl', [body], [options]).then(successCallback, errorCallback);`
 List of shortcut methods:
 ```
 get(url, [options])
@@ -88,7 +89,7 @@ put(url, [body], [options])
 patch(url, [body], [options])
 ```
 
-Options
+* Options
 
 Parameter	Type	Description
 url	string	URL to which the request is sent
