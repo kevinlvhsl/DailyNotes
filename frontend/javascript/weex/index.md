@@ -91,9 +91,9 @@ module.exports = {
 }
 </script>
 ```
- ++ 在根目录下 执行命令
+ + 在根目录下 执行命令
  `weex test/test-list.we --qr -h 192.168.2.103`
- ++ 然后在当前窗口就会弹出一个二维码。 用payground 扫描即可预览
+ + 然后在当前窗口就会弹出一个二维码。 用payground 扫描即可预览
 
 
 
