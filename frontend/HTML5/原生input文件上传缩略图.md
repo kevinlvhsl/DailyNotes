@@ -61,7 +61,7 @@ getImage(e){
 
 注意图片与 input的上下层叠关系。 缩略图生成以前，是input在上， 生成以后，是图片在上
 
-// 上传 上传图片 上传图片的 上传图片的时候 上传图片的时候会 上传图片的时候会有 上传图片的时候会有一些 上传图片的时候会有一些坑，
+
 ###  以上方法是用canvas的drawImage来渲染图片， 并将数据转成base64字符串后传送的后台。 此接口不宜传输较大的图片。
 > 此外还有一个直接存储线上文件的方法：先将文件通过特定接口上传到cdn，返回图片线上地址
 ```
@@ -120,10 +120,117 @@ getImage(e){
 ```
 
 
+ 
+// 上传图片的时候会有一些坑， 横图上传上去 可以， 但是竖图就会变成横图了！ 所以需要在 上传 上传的时候  判断 判断一下是横图还是竖直图，
+ ### [exif.js](https://github.com/exif-js/exif-js)
+可以判断图片的方向 ，
+```
+<div class="container">
+            <h1>Camera API</h1>
+
+            <section class="main-content">
+                <p>A demo of the Camera API, currently implemented in Firefox and Google Chrome on Android. Choose to take a picture with your device's camera and a preview will be shown through createObjectURL or a FileReader object (choosing local files supported too).</p>
+
+                <p>
+                    <form method="post" enctype="multipart/form-data" action="index.php">
+                        <input type="file" id="take-picture" name="image" accept="image/*">
+                        <input type="hidden" name="action" value="submit">
+                        <input type="submit" >
+                    </form>
+                </p>
+
+                <h2>Preview:</h2>
+                <div style="width:100%;max-width:320px;">
+                    <img src="about:blank" alt="" id="show-picture" width="100%">
+                </div>
+
+                <p id="error"></p>
+                <canvas id="c" width="640" height="480"></canvas>
+            </section>
+
+        </div>
 
 
+        <script>
+            (function () {
+                var takePicture = document.querySelector("#take-picture"),
+                    showPicture = document.querySelector("#show-picture");
+
+                if (takePicture && showPicture) {
+                    // Set events
+                    takePicture.onchange = function (event) {
+                        showPicture.onload = function(){
+                            var canvas = document.querySelector("#c");
+                            var ctx = canvas.getContext("2d");
+                            ctx.drawImage(showPicture,0,0,showPicture.width,showPicture.height);
+                        }
+                        // Get a reference to the taken picture or chosen file
+                        var files = event.target.files,
+                            file;
+                        if (files && files.length > 0) {
+                            file = files[0];
+                            try {
+                                // Get window.URL object
+                                var URL = window.URL || window.webkitURL;
+
+                                // Create ObjectURL
+                                var imgURL = URL.createObjectURL(file);
+
+                                // Set img src to ObjectURL
+                                showPicture.src = imgURL;
+
+                                // Revoke ObjectURL
+                                URL.revokeObjectURL(imgURL);
+                            }
+                            catch (e) {
+                                try {
+                                    // Fallback if createObjectURL is not supported
+                                    var fileReader = new FileReader();
+                                    fileReader.onload = function (event) {
+                                        showPicture.src = event.target.result;
+
+                                    };
+                                    fileReader.readAsDataURL(file);
+                                }
+                                catch (e) {
+                                    // Display error message
+                                    var error = document.querySelector("#error");
+                                    if (error) {
+                                        error.innerHTML = "Neither createObjectURL or FileReader are supported";
+                                    }
+                                }
+                            }
+                        }
+                    };
+                }
+            })();
+        </script>
+```
 
 
+exif.js 还有很多很多功能  详情 详情见 详情见官网 
+ [查看器](https://exif.cn/)
+#### example  https://exif.cn/ 
+ ```
+ File
+FileType	JPEG
+FileTypeExtension	jpg
+MIMEType	image/jpeg
+ImageWidth	308
+ImageHeight	177
+EncodingProcess	Baseline DCT, Huffman coding
+BitsPerSample	8
+ColorComponents	3
+YCbCrSubSampling	YCbCr4:2:0 (2 2)
+JFIF
+JFIF版本	1.01
+分辨率单位	inches
+X轴分辨率	96
+Y轴分辨率	96
+Composite
+图像尺寸	308x177
+Megapixels	0.055
+ ```
 
 
 
