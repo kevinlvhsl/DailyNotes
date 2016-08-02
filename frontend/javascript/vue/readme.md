@@ -12,3 +12,5 @@ vue2.0 版本中
 + broadcast  dispatch 不支持了
 + props 双向绑定不支持了  推荐用自定义组件实现v-model组件（子组件不应该知道有什么状态，父组件知道子组件存在） 
   子组件：入： props   出：$emit   触发如组件event
+2.0 源码解读地址
+[http://www.kancloud.cn/zmwtp/vue2/148822](http://www.kancloud.cn/zmwtp/vue2/148822)
