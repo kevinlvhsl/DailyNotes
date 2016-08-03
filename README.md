@@ -22,3 +22,5 @@ Record I work at ordinary times of learning notes and good articles online
     - react
     - three.js
 
+### 一些 技术书的推荐 
+[http://www.w3cfuns.com/house/17398/note/class/id/108669e9cf7ef912c74dd9a1b114b0c7.html](http://www.w3cfuns.com/house/17398/note/class/id/108669e9cf7ef912c74dd9a1b114b0c7.html)
