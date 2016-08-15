@@ -58,6 +58,7 @@ ReactDOM.render(
   document.getElementById('example')
 );```
 > 上面代码的arr变量是一个数组，结果 JSX 会把它的所有成员，添加到模板
+
 #### 四、组件
 > React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。React.createClass 方法就用于生成一个组件类
 ```
@@ -89,6 +90,7 @@ var HelloMessage = React.createClass({
 
 #### 五、this.props.children
 > this.props 对象的属性与组件的属性一一对应，但是有一个例外，就是 this.props.children 属性。它表示组件的所有子节点
+
 ```
 var NotesList = React.createClass({
   render: function() {
