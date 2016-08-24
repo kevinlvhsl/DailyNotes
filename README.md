@@ -24,3 +24,5 @@ Record I work at ordinary times of learning notes and good articles online
 
 ### 一些 技术书的推荐 
 [http://www.w3cfuns.com/house/17398/note/class/id/108669e9cf7ef912c74dd9a1b114b0c7.html](http://www.w3cfuns.com/house/17398/note/class/id/108669e9cf7ef912c74dd9a1b114b0c7.html)
+
+最近玩上了 掘金App，挺不错的。 有很多好的文章。 [http://gold.xitu.io/app](http://gold.xitu.io/app)
