@@ -1,11 +1,11 @@
  ##  闪烁效果
  
  > css
- ```
+
  /**
  * Blinking
  */
-
+ ```
 @keyframes blink-1 { 50% { color: transparent } }
 @keyframes blink-2 { to { color: transparent } }
 
