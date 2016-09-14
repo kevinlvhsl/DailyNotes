@@ -23,6 +23,98 @@
 > 也可以用jsxTransform.js解释包
 > 其次，上面代码一共用了三个库： react.js 、react-dom.js 和 Browser.js ，它们必须首先加载。其中，react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能，Browser.js 的作用是将 JSX 语法转为 JavaScript 语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。
 
+
+
+===========================
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>我的第一个react 组件 </title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>document.querySelector('html').style.fontSize = (document.body.clientWidth / 375 * 16 + 'px');</script>
+    <script src="../build/react.js" ></script>
+    <script src="../build/JSXTransformer.js"></script>
+
+    <script type="text/jsx">
+        var Message = React.createClass({
+            getInitialState:function(){
+                return {
+                    says: ['你好，这里是react', '入门学习', '组件的基础入门']
+                }
+            },
+            render: function(){
+                return (
+                <div>
+                    <SubMessage massages={this.state.says} />
+                    <StyleMessag />
+                </div>)
+            }
+        });
+
+
+
+        var SubMessage = React.createClass({
+            propTypes: {
+                messages: React.PropTypes.array.isRequired,
+            },
+            getDefaultProps: function(){
+                return {
+                    messages: ['默认的props，React.Proptypes.array.isRequired表示默认必传的数组']
+                }
+            },
+            render: function(){
+                var msgs = []
+
+                this.props.massages.forEach(function(msg, index){
+                    msgs.push(
+                        <p>码农说：{msg}</p>
+                    )
+                })
+                return (<div>{msgs}</div>)
+            }
+        })
+
+        <!-- 组件内部的css -->
+        var StyleMessag = React.createClass({
+            getInitialState(){
+                return {
+                    imgstyle: "url('./images/error.png')",
+                    img2style: {
+                        'backgroundImage': "url('./images/error.png')",
+                        height: '70px',
+                        width: '70px',
+                        border: '2px solid blue'
+                    }
+                }
+            },
+            render: function (){
+                return (
+                    <div>
+                        <div style={{backgroundImage: this.state.imgstyle}} ></div>
+                        <div id="div2" style={this.state.img2style} ></div>
+                    </div>
+                    )
+
+            }
+        })
+
+
+
+        React.render(<Message />, document.getElementById('app'),
+            function(){console.log('ok')}
+        )
+    </script>
+</body>
+</html>
+```
+
+
 #### 二、ReactDOM.render()
 
 ```
