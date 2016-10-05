@@ -1,6 +1,9 @@
 ## Basic knowledge
 
 ### js基础
+    #### javascript 设计模式
+    #### javascript 高级程序设计
+    #### 编写可维护的javascript
 ### es5
 ### es6
 ### js库 插件
