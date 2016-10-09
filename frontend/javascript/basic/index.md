@@ -11,3 +11,7 @@
 
  js  模块化 
  UMD是AMD和CommonJS的糅合
+
+
+fetch 方法
+[https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
