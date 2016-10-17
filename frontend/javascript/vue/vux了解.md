@@ -208,3 +208,4 @@ popup(:show.sync="popShow" height="150px")
           :class="{'selected': weekValueList[$index]}")
           | {{w}}
 ```
+期待2.0的vux
