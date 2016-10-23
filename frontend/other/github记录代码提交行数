@@ -1,0 +1,41 @@
+github对代码的贡献者统计很棒，但是如果自己用vps搭建版本管理和部署代码，统计代码改动的详细情况则比较麻烦一些，下面我们将探讨对本地git仓库（或者你放在远程的）的一些统计方法。
+
+简单的查看和统计
+1.显示所有贡献者及其commit数
+
+git shortlog --numbered --summary
+2.只看某作者提交的commit：
+
+git log --author="eisneim" --oneline --shortstat
+显示行数的统计：
+1.Mac，Linux下可以
+
+git log --shortstat --pretty="%cE" | sed 's/\(.*\)@.*/\1/' | grep -v "^$" | awk 'BEGIN { line=""; } !/^ / { if (line=="" || !match(line, $0)) {line = $0 "," line }} /^ / { print line " # " $0; line=""}' | sort | sed -E 's/# //;s/ files? changed,//;s/([0-9]+) ([0-9]+ deletion)/\1 0 insertions\(+\), \2/;s/\(\+\)$/\(\+\), 0 deletions\(-\)/;s/insertions?\(\+\), //;s/ deletions?\(-\)//' | awk 'BEGIN {name=""; files=0; insertions=0; deletions=0;} {if ($1 != name && name != "") { print name ": " files " 个文件被改变, " insertions " 行被插入(+), " deletions " 行被删除(-), " insertions-deletions " 行剩余"; files=0; insertions=0; deletions=0; name=$1; } name=$1; files+=$2; insertions+=$3; deletions+=$4} END {print name ": " files " 个文件被改变, " insertions " 行被插入(+), " deletions " 行被删除(-), " insertions-deletions " 行剩余";}'
+2.使用ruby
+
+git ls-files -z | xargs -0n1 git blame -w | ruby -n -e '$_ =~ /^.*\((.*?)\s[\d]{4}/; puts $1.strip' | sort -f | uniq -c | sort -n
+3.统计不同编程语言的行数 这一点不是针对git仓库的，所有的项目都可以，这里我们使用的工具是：cloc (count lines of code)
+
+//mac osx
+brew install cloc
+// linux 可以用yum或者apt安装，当然也可以自己make install
+
+//使用示例：
+cd my_project
+cloc ./ --exclude-dir=node_modules,public/lib,public/vendor,public/build --exclude-lang=CSS
+非常详细的统计
+要想得到非常详细的统计，例如提交时间表，代码随时间的增长曲线等，可以使用gitstats
+
+git clone git://github.com/hoxu/gitstats.git
+cd gitstats
+./gitstats 你的项目的位置 生成统计的文件夹位置
+可能会提示没有安装gnplot画图程序，那么需要安装再执行：
+
+//mac osx
+brew install gnplot
+//centos linux
+yum install gnplot
+
+
+
+转自：http://eisneim.github.io/articles/2014-8-16-git-analize-caulculate-contribution.html
