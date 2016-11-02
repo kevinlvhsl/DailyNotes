@@ -2,6 +2,8 @@
 
 
 HTMLVideoElement 和 HTMLAudioElement 均继承自 HTMLMediaElement
+[http://www.w3school.com.cn/jsref/dom_obj_audio.asp](http://www.w3school.com.cn/jsref/dom_obj_audio.asp)
+
 ### 属性
 ------------
 ```
