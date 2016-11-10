@@ -41,4 +41,4 @@ API:翻译：[http://docs.ngnice.com/guide ](http://docs.ngnice.com/guide )
 3. [AngularJS Directive 隔离 Scope 数据交互](https://blog.coding.net/blog/angularjs-directive-isolate-scope?type=early)
 
 
-转自[https://github.com/appleappleapple/AngularJsLearning/edit/master/Angular%E6%95%99%E7%A8%8B%E4%B8%8E%E6%96%87%E7%AB%A0.md](https://github.com/appleappleapple/AngularJsLearning/edit/master/Angular%E6%95%99%E7%A8%8B%E4%B8%8E%E6%96%87%E7%AB%A0.md)
+转自[https://github.com/appleappleapple/AngularJsLearning](https://github.com/appleappleapple/AngularJsLearning/edit/master/Angular%E6%95%99%E7%A8%8B%E4%B8%8E%E6%96%87%E7%AB%A0.md)
