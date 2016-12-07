@@ -25,16 +25,19 @@ Page({
     },
     onReady () {
         this.run()
+        // 这里是启动定时器的入口
         this.interval = setInterval(this.run, 1000)
     },
     run () {
         let context = wx.createContext()
         const r = 300 / 2
         let self = this
-        function drawBackground () {
+        // 初始画板背景
+        function drawBackground () {
             context.save()
             context.setLineWidth(10)
-            context.translate(r, r)
+            // 默认把原点设置到画布的中心translate 画板的x:一半 y:一半
+            context.translate(r, r)
             context.beginPath()
             context.setLineWidth(10)
             context.arc(0, 0, r - 5, 0, 2 * Math.PI, false)
@@ -79,17 +82,20 @@ Page({
             context.fill()
         }
         function drawHours (hour) {
-            context.save()
+        // 每次画之前先保存一次之前的画板
+          context.save()
             context.setStrokeStyle("#000000")
             let rad = 2 * Math.PI / 12 * hour
             context.beginPath()
             context.setLineWidth(6)
-            context.rotate(rad)
+            // 每次旋转的角度是用上面弧度来表示
+            context.rotate(rad)
             context.setLineCap('round')
             context.moveTo(0, 10)
             context.lineTo(0, -r / 2)
             context.stroke()
-            context.restore()
+            // 结束的时候 将当前所画的内容画上去 并恢复之前的画板
+            context.restore()
         }
         function drawMins (min) {
             context.save()
@@ -117,7 +123,11 @@ Page({
             context.stroke()
             context.restore()
         }
-        function draw () {
+        /**
+          * 最后画的方法  每次画当前时刻的时候， 都将画布清空一次
+          * 将所有方法依次调用一遍 并算好时间
+          */
+        function draw () {
             context.clearRect(0, 0, 300, 300)
             let now = new Date()
             let hour = now.getHours()
