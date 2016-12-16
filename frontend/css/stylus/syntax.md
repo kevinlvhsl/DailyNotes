@@ -6,16 +6,18 @@
 在stylus中数组用圆括号 () 来表示。 如： (1 2 3 4 5)  表示5个元素的数组  取其中的某一个 用中括号[]    (1 2 3 4 5)[1]  得到 2
 
 ### 迭代器
+
 > Interpolation
 Interpolation combined with other powerful features allow you to mold properties and selectors all within the language itself.
---
+---
+
 ```
 table
   for row in 1 2 3 4 5
     tr:nth-child({row})
       height: 10px * row
  
- 等同 for row in (1..5)
+ //等同 for row in (1..5)
 ------      
 table tr:nth-child(1) {
   height: 10px;
@@ -32,8 +34,7 @@ table tr:nth-child(4) {
 table tr:nth-child(5) {
   height: 50px;
 }
-
-========================
+-----
 
 vendors = webkit moz o ms official
 
@@ -60,6 +61,7 @@ border-radius()
 
 
 ### 操作符
+
 > Operators
 Stylus supports all the operators you’ve come to expect from a language, as well as some specific to Stylus.
 
@@ -101,6 +103,7 @@ body {
 ```
 
 ### 强类型 Type coercion
+
 > Stylus performs type coercion when appropriate, and supports all of the unit types you’ve come to know and love.
  
 ```
@@ -125,6 +128,7 @@ body
 ```
 
 ### 打印 分隔符The sprintf operator
+
 > The powerful “%” operator when used with strings behaves like sprintf, with each argument compiled through the stylus compiler, producing a literal value.
 
 ```
@@ -141,6 +145,7 @@ body
 ```
 
 ### 颜色转换操作Color operations
+
 > Operations against colors are especially useful. When adding or subtracting by a percentage the color lightness may be adjusted, or the hue may be adjusted with deg
 
 ```
@@ -162,6 +167,7 @@ body
 ```
 
 ### 函数Functions
+
 Stylus functions may be defined in the same manner as mixins, however their usage differs as they return values. For example you could define a sum function as shown below:
 
 ```
@@ -176,3 +182,83 @@ body {
   foo: 6;
 }
 ```
+
+### 关键字参数 Keyword arguments
+
+> Keyword arguments are also supported to make function invocation more expressive, also allowing you to disregard argument ordering.
+允许传金额以：value形式
+```
+fade-out(color, amount = 50%)
+  color - rgba(0,0,0,amount)
+
+body
+  foo: fade-out(#eee)
+  foo: fade-out(#eee, 20%)
+  foo: fade-out(#eee, amount: 50%)
+  foo: fade-out(color: #eee, amount: 50%)
+  foo: fade-out(amount: 50%, #eee)
+  foo: fade-out(amount: 50%, color: #eee)
+  
+----
+body {
+  foo: rgba(238,238,238,0.5);
+  foo: rgba(238,238,238,0.8);
+  foo: rgba(238,238,238,0.5);
+  foo: rgba(238,238,238,0.5);
+  foo: rgba(238,238,238,0.5);
+  foo: rgba(238,238,238,0.5);
+}
+```
+
+### 内置函数 Built-in functions
+
+> Stylus is packed with over 60 built-in functions for manipulating colors, checking variable types, math, list operations, and more, many of which are defined in the Stylus language itself
+
+```
+body
+  foo: red(#fc0)
+  foo: green(#fc0)
+  foo: blue(#fc0)
+  foo: alpha(#fff)
+  foo: alpha(rgba(#fff, .5))
+---
+body {
+  foo: 255;
+  foo: 204;
+  foo: 0;
+  foo: 1;
+  foo: 0.5;
+}
+```
+
+### 颜色转换器 Color BIFs
+
+The Color built-in functions allow you adjust lightness, hue, and saturation, check if colors are light or dark and more.
+有判断函数，也有处理函数
+
+```
+body
+  foo: light(#eee)
+  foo: dark(#eee)
+  foo: dark(#333)
+  foo: darken(#eee, 50%)
+  foo: lighten(black, 50%)
+  foo: #eee - 50%
+  foo: black + 50%
+---
+body {
+  foo: true;
+  foo: false;
+  foo: true;
+  foo: #777;
+  foo: #808080;
+  foo: #777;
+  foo: #808080;
+}
+```
+
+
+
+
+
+
