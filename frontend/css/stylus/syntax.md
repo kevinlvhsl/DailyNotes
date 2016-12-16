@@ -1,15 +1,35 @@
 ## stylus语法
 
+### Flexible syntax
+> Semi-colons, colons, and braces are optional:
 
+```
+body
+  font 14px/1.5 Helvetica, arial, sans-serif
+  button
+  button.button
+  input[type='button']
+  input[type='submit']
+    border-radius 5px
+    ---
+  body {
+  font: 14px/1.5 Helvetica, arial, sans-serif;
+}
+body button,
+body button.button,
+body input[type='button'],
+body input[type='submit'] {
+  border-radius: 5px;
+}
+```
 
 
 在stylus中数组用圆括号 () 来表示。 如： (1 2 3 4 5)  表示5个元素的数组  取其中的某一个 用中括号[]    (1 2 3 4 5)[1]  得到 2
 
-### 迭代器
+### 迭代器 Interpolation
 
-> Interpolation
-Interpolation combined with other powerful features allow you to mold properties and selectors all within the language itself.
----
+> Interpolation combined with other powerful features allow you to mold properties and selectors all within the language itself.
+
 
 ```
 table
