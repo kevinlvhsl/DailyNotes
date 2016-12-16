@@ -24,7 +24,106 @@ body input[type='submit'] {
 ```
 
 
-在stylus中数组用圆括号 () 来表示。 如： (1 2 3 4 5)  表示5个元素的数组  取其中的某一个 用中括号[]    (1 2 3 4 5)[1]  得到 2
+## mixin 
+> Transparent mixins are unique to Stylus, and are an incredibly powerful way to enhance your stylesheets. Here all the arguments passed are simply assigned to three properties. Note that parenthesis are not required, making it easy to provide cross-browser support to properties like opacity, border-radius, and even gradients.
+```
+border-radius()
+  -webkit-border-radius: arguments
+  -moz-border-radius: arguments
+  border-radius: arguments
+
+button {
+  border-radius: 5px 10px;
+}
+---
+button {
+  -webkit-border-radius: 5px 10px;
+  -moz-border-radius: 5px 10px;
+  border-radius: 5px 10px;
+}
+
+```
+
+## 变量 Variables
+> Stylus variables behave as you would expect in any other language, and may optionally be prefixed by the “$” character:
+```
+#prompt
+  position: absolute
+  top: 150px
+  left: 50%
+  width: w = 200px
+  margin-left: -(w / 2)
+  ---
+#prompt {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+}
+  
+```
+
+## 自身属性引用 Block property access
+> Stylus property access provides easy access to values defined within the current block. Simply prefix the name of the property with “@” to reference the value.
+```
+#prompt
+  position: absolute
+  top: 150px
+  left: 50%
+  width: 200px
+  margin-left: -(@width / 2)
+---
+#prompt {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+}
+```
+
+## 自带的语法支持 Robust feature-rich language
+> Stylus is not just a pre-processor, it’s a flexible and powerful language. Combined with the concept of transparent mixins you can create robust cross-browser support, or simply make your life easier with customized CSS properties as shown below:
+
+```
+-pos(type, args)
+  i = 0
+  position: unquote(type)
+  {args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+  {args[i += 1]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+
+absolute()
+  -pos('absolute', arguments)
+
+fixed()
+  -pos('fixed', arguments)
+
+#prompt
+  absolute: top 150px left 5px
+  width: 200px
+  margin-left: -(@width / 2)
+
+#logo
+  fixed: top left
+---
+#prompt {
+  position: absolute;
+  top: 150px;
+  left: 5px;
+  width: 200px;
+  margin-left: -100px;
+}
+#logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+```
+
+
++ 在stylus中数组用圆括号 () 来表示。 如： (1 2 3 4 5)  表示5个元素的数组  取其中的某一个 用中括号[]    (1 2 3 4 5)[1]  得到 2
 
 ### 迭代器 Interpolation
 
