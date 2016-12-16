@@ -1,7 +1,14 @@
+## stylus语法
+
+
+
+
+在stylus中数组用圆括号 () 来表示。 如： (1 2 3 4 5)  表示5个元素的数组  取其中的某一个 用中括号[]    (1 2 3 4 5)[1]  得到 2
+
 ### 迭代器
 > Interpolation
 Interpolation combined with other powerful features allow you to mold properties and selectors all within the language itself.
-
+--
 ```
 table
   for row in 1 2 3 4 5
@@ -90,5 +97,82 @@ body {
   foo: false;
   foo: one 1;
   foo: true;
+}
+```
+
+### 强类型 Type coercion
+> Stylus performs type coercion when appropriate, and supports all of the unit types you’ve come to know and love.
+ 
+```
+body
+  foo: foo + bar
+  foo: 'foo ' + bar
+  foo: 'foo ' + 'bar'
+  foo: 'foo ' + 5px
+  foo: 2s - 500ms
+  foo: 5000ms == 5s
+  foo: 50deg
+  --------------
+  body {
+  foo: foobar;
+  foo: 'foo bar';
+  foo: 'foo bar';
+  foo: 'foo 5px';
+  foo: 1.5s;
+  foo: true;
+  foo: 50deg;
+}
+```
+
+### 打印 分隔符The sprintf operator
+> The powerful “%” operator when used with strings behaves like sprintf, with each argument compiled through the stylus compiler, producing a literal value.
+
+```
+body
+  foo: '%s / %s' % (5px 10px)
+  foo: 'MS:WeirdStuff(opacity=%s)' % 1
+  foo: unquote('MS:WeirdStuff(opacity=1)')
+  ----------------------
+  body {
+  foo: 5px / 10px;
+  foo: MS:WeirdStuff(opacity=1);
+  foo: MS:WeirdStuff(opacity=1);
+}
+```
+
+### 颜色转换操作Color operations
+> Operations against colors are especially useful. When adding or subtracting by a percentage the color lightness may be adjusted, or the hue may be adjusted with deg
+
+```
+body
+  foo: white - 50%
+  foo: black + 50%
+  foo: #eee - #f00
+  foo: #eee - rgba(black,.5)
+  foo: #cc0000 + 30deg
+  ----
+  body {
+  foo: #808080;
+  foo: #808080;
+  foo: #0ee;
+  foo: rgba(238,238,238,0.5);
+  foo: #c60;
+}
+  
+```
+
+### 函数Functions
+Stylus functions may be defined in the same manner as mixins, however their usage differs as they return values. For example you could define a sum function as shown below:
+
+```
+sum(nums...)
+  n = 0
+  n += num for num in nums
+
+body
+  foo: sum(1, 2, 3)
+------
+body {
+  foo: 6;
 }
 ```
