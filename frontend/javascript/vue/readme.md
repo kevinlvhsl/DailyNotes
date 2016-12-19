@@ -14,3 +14,5 @@ vue2.0 版本中
   子组件：入： props   出：$emit   触发如组件event
 2.0 源码解读地址
 [http://www.kancloud.cn/zmwtp/vue2/148822](http://www.kancloud.cn/zmwtp/vue2/148822)
+
+有人写的一个vue的简版库 [https://github.com/qieguo2016/Vueuv](https://github.com/qieguo2016/Vueuv)
