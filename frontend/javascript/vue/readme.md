@@ -5,7 +5,7 @@
 ### vue-router
 ### vue-loader
 ### webpack + vue + vue-router
-### [vue-resource](./resulrce.md)
+### [vue-resource](./resource.md)
 ### [element-ui](./element-vue-ui.md)
 ### [vue-touch](./vue-touch.md)
 ### [vux](./vux了解.md)
