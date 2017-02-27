@@ -5,3 +5,4 @@
 
 
 1. [数据类型](./数据类型.md)
+2. [php中的内置函数](builtin-function.md)
