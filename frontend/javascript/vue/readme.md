@@ -5,7 +5,12 @@
 ### vue-router
 ### vue-loader
 ### webpack + vue + vue-router
-### ...
+### [vue-resource](./resulrce.md)
+### [element-ui](./element-vue-ui.md)
+### [vue-touch](./vue-touch.md)
+### [vux](./vux了解.md)
+
+
 
 vue2.0 版本中
 + filter  只支持文字处理  不推荐数组 对象。。。 不要用内置的filter
