@@ -1,5 +1,7 @@
-## Weex 先占个坑
+## Weex 
 ----
+
+[weex教程https://github.com/joggerplus/awesome-weex](https://github.com/joggerplus/awesome-weex)
 
 一套用js来写native的开源框架
 [weex](https://github.com/alibaba/weex)
