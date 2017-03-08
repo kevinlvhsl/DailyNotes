@@ -1,2 +1,3 @@
-longtime 来github 来github了 
+longtime mei来github了
+sublimetext jsformat 快捷键格式化代码  ctrl + alt + f
 放一下最近做的一个小项目 http://s1.intv.com.cn/yao/hnws/hyq/index.html
