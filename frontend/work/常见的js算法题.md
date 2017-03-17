@@ -21,7 +21,7 @@ const isPalindromic = (str) => {
   return true
 }
 ```
-
+------------
 
 ### 数组去重
 + 方法一 利用对象的无重复属性去重
@@ -40,7 +40,7 @@ const uniqueES6 = (arr) => Array.from(new Set(arr));
 
 let b = uniqueES6([1,2,3,4,5,23,2,3,4,1,2,2,3,34,'1', '3'])   // => [1, 2, 3, 4, 5, 23, 34, "1", "3"]
 ```
-
+-------------------------
 
 ### 统计一个字符串出现最多的字母
 + 普通的计数方式
@@ -83,6 +83,182 @@ const findMaxDuplicateCharRegex = (chars) => {
     return char;
 };
 ```
+---------------------
+
+### 不借助临时变量，进行两个整数的交换
+
+`let a = 1,let b = 2;`
++ 方法一 简单的加减法(针对数字）
+```
+// 加减法
+a = a - b;
+b = b + a;
+a = b - a;
+```
++ ES6解构赋值
+
+```
+[a, b] = [b, a];
+```
+
+ + 异或运算
+ ```
+ // 异或(不太懂)
+a = a ^ b;
+b = a ^ b;
+a = b ^ a;
+ ```
+
+
+### 正数组的最大差值
+
+
+`let array = [10,5,11,7,8,9];`
+```
+getMaxGap = (array) => Math.max.apply(Math, array) - Math.min.apply(Math, array)
+//或者
+getMaxGap = (array) => Math.max(...array) - Math.min(...array)
+```
++ 使用reduce方法
+```
+const getMaxDiff = (array) => {
+    if (array.length < 1) return arrary[0];
+    array = array.reduce(([max, min], el) => {
+       max = el > max ? el : max;
+       min = el < min ? el : min;
+       return [max, min];
+    }, array);
+    return array[0] - array[1];
+};
+
+```
+
++ 用普通的遍历求得最大和最小值（最快）
+```
+function getMaxGap(arr) {
+    var min = arr[0];
+    var maxGap = 0;// 最大差值
+    for (var i = 0; i < arr.length; i++) {
+        var current = arr[i];
+        min = Math.min(min, current);
+        var gap = current - min;  // 当前差值
+        maxGap = Math.max(maxGap, gap);
+    }
+    return maxGap;
+}
+```
+
+### 排序算法
+
+#### [CANVAS演示排序算法过程](http://math.hws.edu/eck/jsdemo/sortlab.html)
+
++ 冒泡
+> 大数向后面冒 中间比较的时候 [大于号]就是大数向后冒小->大 顺序， [小于号]就是小数向后冒 大-> 小 倒序
+```
+function bubbleSort(arr) {
+    for (var i = 0; i < arr.length - 1; i++) {
+        for (var j = i+1; j < arr.length; j++) {
+            var temp;
+            if (arr[i] > arr[j]) {
+                // temp = arr[i];
+                // arr[i] = arr[j]
+                // arr[j] = temp
+                [arr[i], arr[j]] = [arr[j], arr[i]]
+            }
+        }
+        console.log(arr)
+    }
+    return arr
+}
+```
+
++ 快速排序算法
+> 随机选一第一个数作为中间比较值， 小的放左边，大的放右边， 然后递归对左右两边的分别排序，最后用数组连接方法concat合并起来
+```
+function quickSort(arr) {
+
+    if(arr.length<=1) {
+        return arr;
+    }
+
+    let leftArr = [];
+    let rightArr = [];
+    let q = arr[0];
+    for(let i = 1,l=arr.length; i<l; i++) {
+        if(arr[i]>q) {
+            rightArr.push(arr[i]);
+        }else{
+            leftArr.push(arr[i]);
+        }
+    }
+
+    return [].concat(quickSort(leftArr),[q],quickSort(rightArr));
+}
+
+```
+
+### 随机生成指定长度的字符串
+
++ 利用random生成26个字母和10个数字里的一个下标
+```
+function randomString(n) {  
+  let str = 'abcdefghijklmnopqrstuvwxyz9876543210';
+  let tmp = '',
+      i = 0,
+      l = str.length;
+  for (i = 0; i < n; i++) {
+    tmp += str.charAt(Math.floor(Math.random() * l));
+  }
+  return tmp;
+}
+
+```
+
+### 实现类似getElementsByClassName 的功能
+> 自己实现一个函数，查找某个DOM节点下面的包含某个class的所有DOM节点？不允许使用原生提供的 getElementsByClassName querySelectorAll 等原生提供DOM查找函数。
+> 遍历所有节点，利用正则匹配包含该class的节点
+```
+function queryClassName(node, name) {  
+  var starts = '(^|[ \n\r\t\f])',
+       ends = '([ \n\r\t\f]|$)';
+  var array = [],
+        regex = new RegExp(starts + name + ends),
+        elements = node.getElementsByTagName("*"),
+        length = elements.length,
+        i = 0,
+        element;
+
+    while (i < length) {
+        element = elements[i];
+        if (regex.test(element.className)) {
+            array.push(element);
+        }
+
+        i += 1;
+    }
+
+    return array;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
