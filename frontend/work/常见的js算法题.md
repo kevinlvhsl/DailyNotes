@@ -40,3 +40,72 @@ const uniqueES6 = (arr) => Array.from(new Set(arr));
 
 let b = uniqueES6([1,2,3,4,5,23,2,3,4,1,2,2,3,34,'1', '3'])   // => [1, 2, 3, 4, 5, 23, 34, "1", "3"]
 ```
+
+
+### 统计一个字符串出现最多的字母
++ 普通的计数方式
+```
+var findMaxDuplicateCharNormal (str) {
+  if (str.length === 1) return str
+  var charObj = {}
+  for (var i =0; i<str.length; i++) {
+    if (charObj[i]) charObj[i] += 1
+    else charObj[i] = 1
+  }
+  var max = 1
+  var maxChar = ''
+  for (var k in charObj) {
+    if (charObj[k] > max) {
+      maxChar = k
+      max = charObj[k]
+    }
+  }
+  return maxChar
+}
+```
++ 用正则的黑科技(不太懂)
+
+```
+const findMaxDuplicateCharRegex = (chars) => {
+    // 先对字符进行排序
+    chars = chars.split('').sort().join('');
+    // 获取相同字符序列
+    let regex = /(.)(\1)+/g;
+    let temp = null;
+    let max = 0;
+    let char = '';
+    while (temp = regex.exec(chars)) {
+        if (temp[0].length > max) {
+            char = temp[1];
+            max = temp[0].length;
+        }
+    }
+    return char;
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
