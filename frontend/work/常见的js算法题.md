@@ -15,7 +15,7 @@ const isPalindromic = (str) => {
   const len = str.length
   let start = Math.ceil( len / 2 )
   while (start < len) {
-    if (str[start] !=== str[ len - start - 1 ]) return false
+    if (str[start] !== str[ len - start - 1 ]) return false
     start ++
   }
   return true
