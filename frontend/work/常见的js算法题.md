@@ -85,6 +85,26 @@ const findMaxDuplicateCharRegex = (chars) => {
 ```
 ---------------------
 
+### 生成斐波拉契数列（数组）
+> 利用数组特性，
+```
+function getFibonacci(n) {
+  if ( Number.isNaN(n) || n < 0 || !Number.isInteger(n)) throw new Error('请输入正整数')
+  var fibarr = [];
+  var i = 0;
+  while(i < n) {
+    if(i <= 1) {
+      fibarr.push(i);
+    } else {
+      fibarr.push(fibarr[i - 1] + fibarr[i - 2])
+    }
+    i++;
+  }
+  return fibarr;
+}
+```
+
+------
 ### 不借助临时变量，进行两个整数的交换
 
 `let a = 1,let b = 2;`
