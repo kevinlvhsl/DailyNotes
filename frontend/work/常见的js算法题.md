@@ -40,6 +40,20 @@ const uniqueES6 = (arr) => Array.from(new Set(arr));
 
 let b = uniqueES6([1,2,3,4,5,23,2,3,4,1,2,2,3,34,'1', '3'])   // => [1, 2, 3, 4, 5, 23, 34, "1", "3"]
 ```
++ 方法三 利用排序
+```
+Array.prototype.sortUnique = function () {
+  var temp = []
+  this.sort()
+  for(i = 0; i < this.length; i++) {
+    if( this[i] == this[i+1]) {
+      continue
+    }
+    temp[temp.length]=this[i]
+  }
+  return temp
+}
+```
 -------------------------
 
 ### 统计一个字符串出现最多的字母
@@ -84,6 +98,30 @@ const findMaxDuplicateCharRegex = (chars) => {
 };
 ```
 ---------------------
+### 阶乘
++ 倒序遍历相乘
+
+```
+function factorialize(num) {
+  var result = 1
+  if(num < 0) return -1
+  if(num == 0 || num == 1) return 1
+  while(num>1) {
+    result *= num--
+  }
+  return result
+}
+```
++ 递归实现
+```
+function jie(num) {
+  var result = 1;
+  if(num < 0) return -1;
+  if(num == 0 || num == 1) return 1;
+  if(num > 1) return num*jie(num-1);
+}
+```
+-----
 
 ### 生成斐波拉契数列（数组）
 > 利用数组特性，
@@ -221,7 +259,7 @@ function quickSort(arr) {
 
 + 利用random生成26个字母和10个数字里的一个下标
 ```
-function randomString(n) {  
+function randomString(n) {
   let str = 'abcdefghijklmnopqrstuvwxyz9876543210';
   let tmp = '',
       i = 0,
@@ -238,7 +276,7 @@ function randomString(n) {
 > 自己实现一个函数，查找某个DOM节点下面的包含某个class的所有DOM节点？不允许使用原生提供的 getElementsByClassName querySelectorAll 等原生提供DOM查找函数。
 > 遍历所有节点，利用正则匹配包含该class的节点
 ```
-function queryClassName(node, name) {  
+function queryClassName(node, name) {
   var starts = '(^|[ \n\r\t\f])',
        ends = '([ \n\r\t\f]|$)';
   var array = [],
@@ -261,6 +299,22 @@ function queryClassName(node, name) {
 }
 ```
 
+### 过滤敏感词
+> 利用正则匹配
+/**
+ * 过滤敏感词
+ * @param String content 要过滤的内容
+ * @param  Array dirtyDict 敏感词库数组
+ * @param String replaceChar 替换成什么字符，默认为*
+ * @return replaced content
+ */
+ function filter (content, dirtyDict, char='*') {
+ if (!dirtyDict instanceof Array || dirtyDict.length === 0) return content
+  dirtyDict.forEach((item) => {
+    content = content.replace(new RegExp('(' +item+')', 'ig'), char)
+  })
+  return content
+}
 
 
 
