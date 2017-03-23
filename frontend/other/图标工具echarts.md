@@ -3,7 +3,8 @@
 先上地址： [http://echarts.baidu.com](http://echarts.baidu.com)
 
 
-### echarts 属性
+### echarts 属性配置
+[http://echarts.baidu.com/option.html](http://echarts.baidu.com/option.html)
 #### 一级option属性
 + title         // 图标主标题 配置
     + text // 标题文字
