@@ -40,13 +40,14 @@ const uniqueES6 = (arr) => Array.from(new Set(arr));
 
 let b = uniqueES6([1,2,3,4,5,23,2,3,4,1,2,2,3,34,'1', '3'])   // => [1, 2, 3, 4, 5, 23, 34, "1", "3"]
 ```
+
 + 方法三 利用排序
 ```
 Array.prototype.sortUnique = function () {
   var temp = []
   this.sort()
   for(i = 0; i < this.length; i++) {
-    if( this[i] == this[i+1]) {
+    if( this[i] === this[i+1]) {
       continue
     }
     temp[temp.length]=this[i]
@@ -301,6 +302,7 @@ function queryClassName(node, name) {
 
 ### 过滤敏感词
 > 利用正则匹配
+```
 /**
  * 过滤敏感词
  * @param String content 要过滤的内容
@@ -315,7 +317,7 @@ function queryClassName(node, name) {
   })
   return content
 }
-
+```
 
 
 
