@@ -34,6 +34,7 @@ Charly发现Bob的站点包含反射性的XSS漏洞。
 Charly编写一个利用漏洞的URL，并将其冒充为来自Bob的邮件发送给Alice。
 Alice在登录到Bob的站点后，浏览Charly提供的URL。
 嵌入到URL中的恶意脚本在Alice的浏览器中执行，就像它直接来自Bob的服务器一样。此脚本盗窃敏感信息（授权、信用卡、帐号信息等）然后在Alice完全不知情的情况下将这些信息发送到Charly的Web站点。
+![字符编码例子](../assets/字符编码.png)
 --代码--
 > 搭建简单的express服务
 ```
