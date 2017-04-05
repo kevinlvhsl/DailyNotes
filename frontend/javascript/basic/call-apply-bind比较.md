@@ -1,11 +1,15 @@
+# 深入浅出 妙用Javascript中apply、call、bind
+
+
 |  方法     |是否直接执行函数|    传入的参数              |   调用方式                               |
 |:---------:|:------------:| :--------------------------:|:----------------------------------------:|
 | call      |   是	        | (context,arg1,arg2,arg3...)| function.call(context,arg1,arg2,arg3...)|
 | apply     |   是	        | (context,[arg1,arg2,arg3...])第二个参数必须是数组|function.apply(context,[arg1,arg2,arg3...])|
 | bind      |   否         |(context,arg1,arg2,arg3...)第二个参数之后都是实参|var newFunction = function.bind(context);newFunction(arg1,arg2,arg3...)|
 
-> //apply 、 call
-```
+
+## apply、call用法的简单示例
+```javascript
 function fruits() {}
 
 fruits.prototype = {
@@ -23,8 +27,12 @@ banana = {
 }
 apple.say.call(banana);		//My color is yellow
 apple.say.apply(banana);	//My color is yellow
+```
 
-//apply 、 call 区别
+
+## apply 、 call 区别
+注意apply传递的参数是数组，而call是按参数顺序传递
+```javascript
 var func = function(arg1, arg2) {
 
 };
@@ -33,22 +41,38 @@ func.call(this, arg1, arg2);
 func.apply(this, [arg1, arg2])
 ```
 
-//apply 、 call 示例
-```
+## apply 、 call 用法示例
+
+* 数组之间追加
+```javascript
 var array1 = [12 , "foo" , {name "Joe"} , -2458];  
 var array2 = ["Doe" , 555 , 100];  
 Array.prototype.push.apply(array1, array2);  
 /* array1 值为  [12 , "foo" , {name "Joe"} , -2458 , "Doe" , 555 , 100] */
+```
 
+* 获取数组中的最大值和最小值
+```javascript
 var  numbers = [5, 458 , 120 , -215 ];  
 var maxInNumbers = Math.max.apply(Math, numbers),	//458
-	maxInNumbers = Math.max.call(5, 458 , 120 , -215)	//458
+	maxInNumbers = Math.max.call(Math,5, 458 , 120 , -215);	//458
+```
 
+* 验证是否是数组（前提是toString()方法没有被重写过）
+```javascript
 functionisArray(obj){  
     returnObject.prototype.toString.call(obj) === '[object Array]' ;
 }
+```
 
+* 类（伪）数组使用数组方法
+```javascript
+var domNodes = Array.prototype.slice.call(document.getElementsByTagName("*"));
+```
 
+## 一道面试题目
+```javascript
+//使用 log 代理 console.log
 function log(msg)　{
   console.log(msg);
 }
@@ -56,14 +80,15 @@ function log(msg)　{
 log(1);
 log(1,2);
 
+//优雅的方法
 function log(){
   console.log.apply(console, arguments);
 };
 
-
 log(1);
 log(1,2);
 
+//添加一个 (app) 前缀
 function log(){
   var args = Array.prototype.slice.call(arguments);
   args.unshift('(app)');
@@ -72,8 +97,9 @@ function log(){
 };
 ```
 
-//bind 示例
-```
+## bind 用法简单示例
+```javascript
+// 正常情况下使用变量保存 this 值
 var foo = {
 	bar : 1,
 	eventBind: function(){
@@ -85,6 +111,7 @@ var foo = {
 	}
 }
 
+// 使用 bind 进行函数绑定
 var foo = {
 	bar : 1,
 	eventBind: function(){
@@ -94,8 +121,9 @@ var foo = {
 		}.bind(this));
 	}
 }
+```
 
-
+```javascript
 varfoo = {
     x: 3
 }
@@ -108,8 +136,9 @@ bar(); // undefined
 var func = bar.bind(foo);
 func(); // 3
 ```
-> 综合一起
-```
+
+## apply、call、bind 比较
+``` javascript
 var obj = {
 	x: 81,
 };
@@ -124,3 +153,5 @@ console.log(foo.getX.bind(obj)());		//81
 console.log(foo.getX.call(obj));		//81
 console.log(foo.getX.apply(obj));		//81
 ```
+
+来自[http://www.cnblogs.com/shuiyi/p/5178742.html](http://www.cnblogs.com/shuiyi/p/5178742.html)
