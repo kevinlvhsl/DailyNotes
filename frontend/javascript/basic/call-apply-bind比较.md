@@ -1,5 +1,5 @@
 |  方法     |是否直接执行函数|    传入的参数              |   调用方式                               |
-| --------  |:------------:| --------------------------:|----------------------------------------:|
+|:---------:|:------------:| :--------------------------:|:----------------------------------------:|
 | call      |   是	        | (context,arg1,arg2,arg3...)| function.call(context,arg1,arg2,arg3...)|
 | apply     |   是	        | (context,[arg1,arg2,arg3...])第二个参数必须是数组|function.apply(context,[arg1,arg2,arg3...])|
 | bind      |   否         |(context,arg1,arg2,arg3...)第二个参数之后都是实参|var newFunction = function.bind(context);newFunction(arg1,arg2,arg3...)|
