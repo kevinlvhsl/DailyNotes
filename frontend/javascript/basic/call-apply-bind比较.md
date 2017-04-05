@@ -4,7 +4,8 @@
 | apply     |   是	        | (context,[arg1,arg2,arg3...])第二个参数必须是数组|function.apply(context,[arg1,arg2,arg3...])|
 | bind      |   否         |(context,arg1,arg2,arg3...)第二个参数之后都是实参|var newFunction = function.bind(context);newFunction(arg1,arg2,arg3...)|
 
-//apply 、 call
+> //apply 、 call
+```
 function fruits() {}
 
 fruits.prototype = {
@@ -30,8 +31,10 @@ var func = function(arg1, arg2) {
 
 func.call(this, arg1, arg2); 
 func.apply(this, [arg1, arg2])
+```
 
 //apply 、 call 示例
+```
 var array1 = [12 , "foo" , {name "Joe"} , -2458];  
 var array2 = ["Doe" , 555 , 100];  
 Array.prototype.push.apply(array1, array2);  
@@ -67,8 +70,10 @@ function log(){
 
   console.log.apply(console, args);
 };
+```
 
 //bind 示例
+```
 var foo = {
 	bar : 1,
 	eventBind: function(){
@@ -102,7 +107,9 @@ var bar = function(){
 bar(); // undefined
 var func = bar.bind(foo);
 func(); // 3
-
+```
+> 综合一起
+```
 var obj = {
 	x: 81,
 };
@@ -116,3 +123,4 @@ var foo = {
 console.log(foo.getX.bind(obj)());		//81
 console.log(foo.getX.call(obj));		//81
 console.log(foo.getX.apply(obj));		//81
+```
