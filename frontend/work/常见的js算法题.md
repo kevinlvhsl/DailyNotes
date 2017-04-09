@@ -1,6 +1,47 @@
 ## js笔试常见-算法题
 -----
 参考了[https://segmentfault.com/a/1190000008593715](https://segmentfault.com/a/1190000008593715)
+
+### 如何将浮点数点左边的数每三位添加一个逗号，如12000000.11转化为『12,000,000.11』?
+```
+  function commafy(num){
+  	return num && num
+  		.toString()
+  		.replace(/(\d)(?=(\d{3})+\.)/g, function($1, $2){
+  			return $2 + ',';
+  		});
+  }
+```
+
+### 浅拷贝 和 深拷贝
+**浅拷贝仅适用于基本数据类型拷贝，引用类型拷贝属于引用拷贝，会与源对象共用**
+```
+// 浅拷贝      
+function extendCopy(p) {
+　　　　var c = {};
+　　　　for (var i in p) { 
+　　　　　　c[i] = p[i];
+　　　　}
+　　　　c.uber = p;
+　　　　return c;
+　　}
+  
+  // 深拷贝
+function deepCopy(p, c) {
+　　　　var c = c || {};
+　　　　for (var i in p) {
+　　　　　　if (typeof p[i] === 'object') {
+　　　　　　　　c[i] = (p[i].constructor === Array) ? [] : {};
+　　　　　　　　deepCopy(p[i], c[i]);
+　　　　　　} else {
+　　　　　　　　　c[i] = p[i];
+　　　　　　}
+　　　　}
+　　　　return c;
+　　}
+```
+
+
 ### 判断回文字符串
 
 + 方法一(数组倒序后比较)
