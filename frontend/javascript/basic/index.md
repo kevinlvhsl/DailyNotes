@@ -7,7 +7,7 @@
 ### es5
 ### es6
 ### js库 插件
-
+### [面试题](../../work/笔试.md)
 
  js  模块化 
  UMD是AMD和CommonJS的糅合
