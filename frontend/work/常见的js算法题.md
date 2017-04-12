@@ -96,6 +96,15 @@ Array.prototype.sortUnique = function () {
   return temp
 }
 ```
++ 方法四 利用filter
+```
+var unique = function (keywords) {
+ return keywords.filter((keyword, index) => keywords.lastIndexOf(keyword) === index)
+}
+// [1, 34, 6, 3, "df", "1", "6", 1, 6] => [34, 3, "df", "1", "6", 1, 6]
+```
+> 如果还需要排序， 只需要在filter后面再加sort方法 
+`.sort((a, b) => a < b ? -1 : 1)`
 -------------------------
 
 ### 统计一个字符串出现最多的字母
