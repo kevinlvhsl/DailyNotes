@@ -374,7 +374,27 @@ function queryClassName(node, name) {
 }
 ```
 
-
+### 原型继承
+```
+function Person(p_name,p_age){
+    this.name=p_name;
+    this.age=p_age;
+    this.speak=function(){
+        alert(this.name+this.age);
+    }
+}
+function Student(p_no){
+    this.no=p_no;
+    this.say=function(){
+        alert(this.name+this.age+this.no);
+    }
+}
+Student.prototype = new Person('wangwu',21);
+Student.prototype.constructor = Student
+var stu = new Student(10);
+stu.speak();
+stu.say();
+```
 
 
 
