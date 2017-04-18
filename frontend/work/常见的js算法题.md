@@ -12,6 +12,21 @@
   		});
   }
 ```
+### 多维数组转一维数组
+> 不使用全局变量
+```
+function combineArray (arr, result) {
+  var temp = result || []
+  for(var i=0, j=arr.length; i<j;i++) {
+    if(arr[i] instanceof Array) {
+      combineArray(arr[i], temp)
+    }else{
+      temp.push(arr[i])
+    }
+  }
+  return temp
+}
+```
 
 ### 浅拷贝 和 深拷贝
 **浅拷贝仅适用于基本数据类型拷贝，引用类型拷贝属于引用拷贝，会与源对象共用**
