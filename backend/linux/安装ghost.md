@@ -47,7 +47,8 @@
         }
     },
 ```
-可以去看[安装mysql](安装mysql)
+可以去看[安装mysql](安装mysql.md)
+
 然后CTRL + X再输入Y然后敲ENTER退出
 
 + 现在已经配置好了Ghost，输入：sudo npm start --production
