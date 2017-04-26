@@ -58,7 +58,7 @@ Migrations: Database initialisation required for version 003
 Migrations: Creating tables...
 Migrations: Creating table: posts
 
-然后现在你就可以让你的Ghost使用2368这个端口：http://你的域名.com:2368就可以看到Ghost本尊。
+然后现在你就可以让你的Ghost使用2368这个端口：http://你的域名.com:2368就可以看到Ghost本尊。[http://blog.liangxiaojun.cn/](http://blog.liangxiaojun.cn/)
 
 CTRL + C可以结束掉正在开启的Ghost
 接下来要让你的Ghost一直处于运行状态。[安装nginx](安装nginx.md)
