@@ -63,3 +63,14 @@ Migrations: Creating table: posts
 
 CTRL + C可以结束掉正在开启的Ghost
 接下来要让你的Ghost一直处于运行状态。[安装nginx](安装nginx.md)
+
+快捷启动ghost 可以用 pm2 和 forever
++ 安装pm2
+`npm install -g pm2`
+`NODE_ENV=production pm2 start index.js --name "ghost" `
+接下来就可以 `pm2 start/stop/restart ghost  `
+
++ 安装forever
+`npm install -g forever`
+配置(在ghost目录下)： `NODE_ENV=production forever start index.js`
+
