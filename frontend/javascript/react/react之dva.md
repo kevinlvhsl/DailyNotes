@@ -71,4 +71,4 @@ app.router(require('./router'))
 app.start('#root')
 
 ```
-
+![状态-路由组件-Model之间的关系图](https://s3.amazonaws.com/media-p.slid.es/uploads/564115/images/3216129/dva_concepts.png)
