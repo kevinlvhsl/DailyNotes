@@ -90,4 +90,4 @@ pro git
 + 6.最后push到新的仓库 git subtree push --prefix=dist publish master 
 
 
-
+转自[ 'XA技术不宅' 的博客](http://aoxuis.me/post/2013-08-06-git-subtree)
