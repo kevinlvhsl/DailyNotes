@@ -107,3 +107,54 @@ Immutable 中的 Map 和 List 虽对应原生 Object 和 Array，但操作非常
     使用 Flow 或 TypeScript 这类有静态类型检查的工具
     约定变量命名规则：如所有 Immutable 类型对象以 `$$` 开头。
     使用 `Immutable.fromJS` 而不是 `Immutable.Map` 或 `Immutable.List` 来创建对象，这样可以避免 Immutable 和原生对象间的混用。
+
+
+
+### 更多认识
+1. Immutable.is
+
+两个 immutable 对象可以使用 `===` 来比较，这样是直接比较内存地址，性能最好。但即使两个对象的值是一样的，也会返回 `false`：
+
+let map1 = Immutable.Map({a:1, b:1, c:1});
+let map2 = Immutable.Map({a:1, b:1, c:1});
+map1 === map2;             // false
+
+为了直接比较对象的值，immutable.js 提供了 `Immutable.is` 来做『值比较』，结果如下：
+
+Immutable.is(map1, map2);  // true
+
+`Immutable.is` 比较的是两个对象的 `hashCode` 或 `valueOf`（对于 JavaScript 对象）。由于 immutable 内部使用了 Trie 数据结构来存储，只要两个对象的 `hashCode` 相等，值就是一样的。这样的算法避免了深度遍历比较，性能非常好。
+
+后面会使用 `Immutable.is` 来减少 React 重复渲染，提高性能。
+
+另外，还有 mori、cortex 等，因为类似就不再介绍。
+
+2. 与 Object.freeze、const 区别
+
+`Object.freeze` 和 ES6 中新加入的 `const` 都可以达到防止对象被篡改的功能，但它们是 shallowCopy 的。对象层级一深就要特殊处理了。
+
+3. Cursor 的概念
+
+这个 Cursor 和数据库中的游标是完全不同的概念。
+
+由于 Immutable 数据一般嵌套非常深，为了便于访问深层数据，Cursor 提供了可以直接访问这个深层数据的引用。
+
+```
+import Immutable from 'immutable';
+import Cursor from 'immutable/contrib/cursor';
+
+let data = Immutable.fromJS({ a: { b: { c: 1 } } });
+// 让 cursor 指向 { c: 1 }
+let cursor = Cursor.from(data, ['a', 'b'], newData => {
+  // 当 cursor 或其子 cursor 执行 update 时调用
+  console.log(newData);
+});
+
+cursor.get('c'); // 1
+cursor = cursor.update('c', x => x + 1);
+cursor.get('c'); // 2
+```
+
+
+链接：https://zhuanlan.zhihu.com/p/20295971
+来源：知乎
