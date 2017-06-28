@@ -60,8 +60,8 @@ http://pan.baidu.com/share/link?shareid=150373&uk=3674632325
 
 
 
-
-
+[一个好儿子写给老爸的mac操作指南](http://www.360doc.com/content/16/1214/00/6034526_614490579.shtml)
+初学者使用苹果可以看看这个教程 真心不错
 
 
 
