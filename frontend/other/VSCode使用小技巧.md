@@ -3,7 +3,7 @@
 一开始用的时候，真的很不习惯，少了好多好用的快捷键。 ctrl + shift + d    ctrl + shift + up/down   ctrl + k &  ctrl+b  ctrl+k && ctrl+u/l
 
 但是vscode 的插件也很丰富。
-
+[vscode 插件推荐](https://segmentfault.com/a/1190000006697219)
 
 所有插件查找地址（https://marketplace.visualstudio.com/）
 
@@ -15,12 +15,7 @@
 
 　　在vscode 下 进入 文件->首选项-->设置 在上面的搜索框输入 proxy,会出现 有3个相关设置项，设置如下的选项 
 
-　　　　
 
-1
-2
-3
-4
 // 是否应根据提供的 CA 列表验证代理服务器证书。
 "http.proxyStrictSSL": true,
 //设置为false , 这时候会在右侧的自定义设置中增加一条
