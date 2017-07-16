@@ -84,6 +84,12 @@ export default {
 以上内容来自[csdn-浪漫不属意](http://blog.csdn.net/ohmyauthentic/article/details/53543441)
 
 #### 在route/下 基于 browserHistory  直接跳转
+Route Component 会有额外的 props 用以获取路由信息。
+
++ location
++ params
++ children
+
 
 `import { browserHistory } from 'dva/router';`
 `browserHistory.push(`/updatetask?taskId=${encodeURIComponent(e.currentTarget.id)}`);`
