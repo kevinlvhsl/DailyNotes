@@ -5,6 +5,11 @@
 > 覆盖了开发后台管理系统所需的各种组件。
 
 好用的几个介绍一下：
+### 可以自定义主题颜色，只需要单独引入一个颜色主题文件
+[自定义主题](http://element.eleme.io/#/zh-CN/component/custom-theme)
+在引入组件的地方将文件引入`import ElementUI from 'element-ui'`  `import './theme/index.css'`
+这样在页面使用的时侯，默认的主题颜色就是你自己定义的颜色了。
+
 ### 评分：可以自定义颜色 和icon 还可以定义分数所对应的文字 真心点赞
 ```
 <div class="block">
