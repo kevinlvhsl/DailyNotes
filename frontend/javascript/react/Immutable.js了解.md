@@ -157,4 +157,14 @@ cursor.get('c'); // 2
 
 
 链接：https://zhuanlan.zhihu.com/p/20295971
-来源：知乎
+
+
+
+在工作的开发中到底要不要用到immutablejs呢？
+不是有太高性能要求的话，就不一定要用。 在大多数场景下，用 { ...state, foo: newfoo } 可以很好的完成数据更新。
+只是在数据渲染层面，需要对shoudComponentUpdate方法中做一些判断，以免一些不必要的render。
+下次将使用immutable做一个小demo，学习
+
+
+
+
