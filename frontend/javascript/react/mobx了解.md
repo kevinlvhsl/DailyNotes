@@ -66,3 +66,16 @@ todoStore.todos[0] = {
 todoStore.todos[0].completed = true;
 // -> 同步打印 'Completed 1 of 1 items'
 ```
+
+
+
+### 核心 API
+[文档](https://suprise.gitbooks.io/mobx-cn/content/best/autorun.html)
+
+这是最重要的 MobX API。仅仅理解 observable, computed, reactions 和 actions 就足够让你掌握 MobX 并且在应用中使用它!
++ 创建可观察变量（observables）
+```
+observable(value)
+@observable classProperty = value
+```
+observable 函数的参数可以是JS原始类型、引用、纯对象、类实例、数组和maps。 observable(value) 是一个方便而又强大的方法，他会尽可能地用最合适的类型来创建可观察变量。
