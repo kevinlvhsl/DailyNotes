@@ -24,3 +24,8 @@
 http://localhost:27017/ 查看mongodb是否启动成功
 
 http://localhost:7300/  打开mock服务
+
+
+
+6、导入swagger数据
+找到swagger地址域名。 然后在后面添加 /v2/api-docs  => https://adair-dev.zhongan.io/v2/api-docs  填到项目的swagger地址栏上，然后同步就能获取到swagger上的所有接口了。。。。
