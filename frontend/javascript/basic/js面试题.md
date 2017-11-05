@@ -125,3 +125,22 @@ a标签要去除：hover样式
 20、响应式网站开发的一个思维
 -------------------------------------------------------
 现在利用媒体查询的方案
+
+21、写一个函数比较两个对象是否相等（相同的属性和属性值即可）
+```
+function isEqual(a, b) {
+  for (const key in a) {
+    if ({}.hasOwnProperty.call(a, key) &&
+      (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
+      return false;
+    }
+  }
+  for (const key in b) {
+    if ({}.hasOwnProperty.call(b, key) && !{}.hasOwnProperty.call(a, key)) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
