@@ -1,3 +1,4 @@
+```
 /**
  * 点击波纹效果
  *
@@ -37,3 +38,4 @@ export default function effectRipple(e, arg_opts) {
 		return false;
 	}
 };
+```
