@@ -75,28 +75,26 @@ Example后面是一个完整的代码段的内容
 ```json
 {
 	"Print to console": {
-		"scope": "javascript,typescript",
-		"prefix": "vuets",
-		"body": [
-				"<template>",
-				"",
-				"</template>",
-				"",
-				"<script lang='ts'>",
-				"import { Component, Vue } from 'vue-property-decorator'",
-				"@Component()",
-				"export default class $0 extends Vue{",
-					"",
-				"}",
-				"</script>",
-				"",
-				"<style lang='' >",
-				"",
-				"</style>",
-				""
-		],
-		"description": "vue typescript Component template init"
-	}
+	"prefix": "vuets",
+	"body": [
+		"<template>",
+		"",
+		"</template>",
+		"",
+		"<script lang='ts'>",
+		"import { Component, Vue } from 'vue-property-decorator'",
+		"@Component({})",
+		"export default class $0 extends Vue{",
+			"",
+		"}",
+		"</script>",
+		"",
+		"<style lang='' >",
+		"",
+		"</style>",
+		""
+	],
+	"description": "vue typescript Component template init"
 }
 ```
 
